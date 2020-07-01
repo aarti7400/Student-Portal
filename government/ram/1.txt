@@ -1,0 +1,33 @@
+<html>
+<head>
+<script language="javascript">
+function disp()
+{
+var message;
+e=document.frm.t1.value;
+try
+{
+if(e.lengh==0)
+throw"check the text box";
+else
+if(isNaN(e))
+throw"it must be numeric";
+}
+catch(err)
+{
+document.write(err);
+}
+finally
+{
+document.frm.t1.value="";
+}
+}
+</script>
+</head>
+<body>
+<form name=frm>
+<input type=text name=t1><br>
+<input type=button name=sbm value=click onclick="disp()">
+</form>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<html>
+<head><title>Upload Form</title></head>
+<body>
+<form name=frm method=post action=upload.php>
+<center><table><caption>Upload Information</caption>
+<tr>
+<td> Upload No : </td>
+<td><input type=text name=uplno size=20></td>
+</tr>
+<tr>
+<td>Upload Date : </td>
+<td><input type=text name=upldt size=20></td>
+</tr>
+<tr>
+<td> Upload Time : </td>
+<td><input type=text name=upltm size=20></td>
+</tr>
+<tr>
+<td> Staff Id : </td>
+<td><input type=text name=sid size=50></td>
+</tr>
+<tr>
+<td>Branch : </td>
+<td>
+<select name=bra>
+<option value=com>Computer Engineering</option>
+<option value=me>Mechanical Engineering</option>
+<option value=ae>Automobile Engineering</option>
+<option value=ce>Civil Engineering</option>
+<option value=ee>Electronics Engineering</option>
+</select>
+</td>
+</tr>
+<tr>
+<td> Academic Year : </td>
+<td><input type=text name= ayr size=20></td>
+</tr>
+<tr>
+<td>Subject Code : </td>
+<td>
+<select name=scod>
+
+<option value=101>17101</option>
+<option value=104>17104</option>
+<option value=102>17102</option>
+<option value=103>17103</option>
+<option value=cmfp>Computer Fundamental</option>
+
+<option value=201>17201</option>
+<option value=216>17216</option>
+<option value=210>17210</option>
+<option value=211>17211</option>
+<option value=212>17212</option>
+<option value=wpdp>Web Page Design</option>
+<option value=213>17213</option>
+
+<option value=330>17330</option>
+<option value=332>17332</option>
+<option value=301>17301</option>
+<option value=333>17333</option>
+<option value=331>17331</option>
+<option value=vbp>Visual Basic</option>
+
+<option value=429>17429</option>
+<option value=432>17432</option>
+<option value=428>17428</option>
+<option value=431>17431</option>
+<option value=cgrp>Computer Graphics</option>
+<option value=401>17401</option>
+
+<option value=515>17515</option>
+<option value=514>17514</option>
+<option value=513>17513</option>
+<option value=512>17512</option>
+<option value=pwvp>Windows Programming</option>
+<option value=nmap>Netwrok Management & Administration</option>
+
+<option value=625>17625</option>
+<option value=627>17627</option>
+<option value=624>17624</option>
+<option value=lprp>Linux Programming</option>
+<option value=601>17601</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>File Type : </td>
+<td>
+<select name=type>
+<option value=syll>Syllabus</option>
+<option value=not>Notes</option>
+<option value=que>Question Paper</option>
+<option value=mod>Model Answer Paper </option>
+<option value=ebook>E-Books</option>
+<option value=source>Source Codes</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>File Upload Path : </td>
+<td><input type=file name=file></td>
+</tr>
+<tr>
+<td>Title : </td>
+<td><input type=text name=tit size=50></td>
+</tr>
+</table>
+<input type=submit name=sbm value=Submit>
+<input type=reset name=rst value=Reset>
+<input type=button name=dis value=Display>
+<input type=button name=del value=Delete>
+</center>
+</form>
+</body>
+</html>
+
+
+<?php
+if(isset($_POST[sbm]))
+{
+$cn=mysql_connect("localhost","root");
+mysql_select_db("onlinenotes",$cn);
+$sql="insert into upload values('$_POST[uplno]','$_POST[sid]','$_POST[upldt]','$_POST[upltm]','$_POST[scod]','$_POST[file]','$_POST[tit]','$_POST[type]','$_POST[ayr]','$_POST[bra]')";
+mysql_query($sql,$cn);
+echo "Data Is Stored";
+}
+?>

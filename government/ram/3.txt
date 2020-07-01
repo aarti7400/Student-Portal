@@ -1,0 +1,18 @@
+<html>
+<head>
+<script language="javascript">
+function disp()
+{
+var a,b,c;
+a=parseInt(prompt("enter any no"));
+alert("wel come");
+confirm("really save it");
+}
+</script>
+</head>
+<body>
+<form name=frm>
+<input type=button name=btn onclick="disp()" value=click><br>
+</form>
+</body>
+</html>
